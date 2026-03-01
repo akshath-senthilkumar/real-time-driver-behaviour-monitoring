@@ -1,87 +1,97 @@
-🚗 Real-Time Driver Behaviour Monitoring System
+# 🚗 Real-Time Driver Behaviour Monitoring System
 
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![YOLO](https://img.shields.io/badge/YOLO-ObjectDetection-red)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-orange)
 
+---
 
-
-
-
-
-
-📌 Overview
+## 📌 Overview
 
 A real-time multi-driver behaviour monitoring system that detects unsafe driving behaviours using computer vision and displays live alerts on a centralized dashboard.
 
 The system supports concurrent drivers and performs rule-based violation detection with critical alert escalation.
 
-🎯 Behaviours Detected
+---
 
-📱 Phone Usage
+## 🎯 Behaviours Detected
 
-😴 Drowsiness (Eyes Closed)
+- 📱 **Phone Usage**
+- 😴 **Drowsiness (Eyes Closed)**
+- 👀 **Looking Away**
 
-👀 Looking Away
+---
 
 ## 🚨 Violation Rules
 
-| Behaviour      | Threshold |
-|---------------|------------|
-| Phone Usage   | > 4 seconds continuous |
-| Eyes Closed   | > 3 seconds continuous |
-| Looking Away  | > 5 seconds continuous |
-| Critical Alert| 2+ simultaneous violations |
+| Behaviour       | Threshold |
+|----------------|------------|
+| Phone Usage    | > 4 seconds continuous |
+| Eyes Closed    | > 3 seconds continuous |
+| Looking Away   | > 5 seconds continuous |
+| Critical Alert | 2+ simultaneous violations |
+
+---
+
 ## 🧠 System Architecture
+
+```
 Driver App (YOLO + Rule Engine)
-↓
-FastAPI Backend
-↓
-Streamlit Dashboard
+            ↓
+      FastAPI Backend
+            ↓
+     Streamlit Dashboard
+```
 
 ### Communication
 
 - REST API for violation events  
-- WebSocket broadcasting for real-time updates
-REST API for violation events
+- WebSocket broadcasting for real-time updates  
 
-WebSocket broadcasting for real-time updates
+---
 
 ## 📁 Project Structure
+
+```
 real-time-driver-behaviour-monitoring/
 │
 ├── client/
-│ └── driver.py
+│   └── driver.py
 │
 ├── server/
-│ └── server.py
+│   └── server.py
 │
 ├── dashboard/
-│ └── dashboard.py
+│   └── dashboard.py
 │
 ├── model/
-│ └── best.pt
+│   └── best.pt
 │
 ├── requirements.txt
 └── README.md
+```
 
-⚙️ Tech Stack
+---
 
-Python
+## ⚙️ Tech Stack
 
-OpenCV
+- Python  
+- OpenCV  
+- YOLO (Ultralytics)  
+- FastAPI  
+- WebSockets  
+- Streamlit  
+- Pandas  
+- CSV Logging  
 
-YOLO (Ultralytics)
+---
 
-FastAPI
+## 🌐 API Endpoints
 
-WebSockets
+### POST `/violation`
 
-Streamlit
-
-Pandas
-
-CSV Logging
-
-🌐 API Endpoints
-### POST /violation
+Receives violation event from the driver client.
 
 ```json
 {
@@ -90,47 +100,99 @@ CSV Logging
   "duration": 5.4,
   "status": "warning"
 }
-GET /drivers
+```
+
+---
+
+### GET `/drivers`
 
 Returns all current driver states.
 
-WebSocket /ws
+---
+
+### WebSocket `/ws`
 
 Broadcasts real-time driver updates to dashboard clients.
 
-🚀 How To Run
-1️⃣ Install Dependencies
+---
+
+## 🚀 How To Run
+
+### 1️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
-2️⃣ Start Server
+```
+
+---
+
+### 2️⃣ Start Server
+
+```bash
 cd server
 uvicorn server:app --reload
-3️⃣ Start Dashboard
+```
+
+---
+
+### 3️⃣ Start Dashboard
+
+```bash
 cd dashboard
 streamlit run dashboard.py
-4️⃣ Start Driver App
+```
+
+---
+
+### 4️⃣ Start Driver App
+
+```bash
 cd client
 python driver.py
-🔐 Demo Credentials
+```
+
+---
+
+## 🔐 Demo Credentials
+
+```
 Driver-1 / 1234
 Driver-2 / 1234
-📈 Real-Time Performance
+```
 
-Frame-level inference
+---
 
-Sub-second violation detection
+## 📈 Real-Time Performance
 
-~1–2 second dashboard latency (poll-based)
+- Frame-level inference (continuous)
+- Sub-second violation detection
+- ~1–2 second dashboard update latency (poll-based)
+- WebSocket support for near-instant broadcasting
 
-WebSocket support for near-instant updates
+This system operates as a **soft real-time monitoring system**.
 
-This system operates as a soft real-time monitoring system.
+---
 
-🏆 Applications
+## 🏆 Applications
 
-Fleet Monitoring Systems
+- Fleet Monitoring Systems  
+- Commercial Vehicle Safety  
+- Smart Transportation  
+- AI-Based Road Safety  
 
-Commercial Vehicle Safety
+---
 
-Smart Transportation
+## 🔮 Future Improvements
 
-AI-Based Road Safety
+- Database integration (PostgreSQL / MongoDB)
+- JWT Authentication
+- Dockerization
+- Cloud deployment
+- SMS / Email alert system
+- Edge deployment (Raspberry Pi)
+
+---
+
+## 📜 License
+
+MIT License
