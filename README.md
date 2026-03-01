@@ -21,41 +21,47 @@ The system supports concurrent drivers and performs rule-based violation detecti
 
 👀 Looking Away
 
-🚨 Violation Rules
-Behaviour	Threshold
-Phone Usage	> 4 seconds continuous
-Eyes Closed	> 3 seconds continuous
-Looking Away > 5 seconds continuous
-Critical Alert 2+ simultaneous violations
-🧠 System Architecture
-Driver App (YOLO + Rule Engine)
-            ↓
-      FastAPI Backend
-            ↓
-     Streamlit Dashboard
-Communication
+## 🚨 Violation Rules
 
+| Behaviour      | Threshold |
+|---------------|------------|
+| Phone Usage   | > 4 seconds continuous |
+| Eyes Closed   | > 3 seconds continuous |
+| Looking Away  | > 5 seconds continuous |
+| Critical Alert| 2+ simultaneous violations |
+## 🧠 System Architecture
+Driver App (YOLO + Rule Engine)
+↓
+FastAPI Backend
+↓
+Streamlit Dashboard
+
+### Communication
+
+- REST API for violation events  
+- WebSocket broadcasting for real-time updates
 REST API for violation events
 
 WebSocket broadcasting for real-time updates
 
-📁 Project Structure
+## 📁 Project Structure
 real-time-driver-behaviour-monitoring/
 │
 ├── client/
-│   └── driver.py
+│ └── driver.py
 │
 ├── server/
-│   └── server.py
+│ └── server.py
 │
 ├── dashboard/
-│   └── dashboard.py
+│ └── dashboard.py
 │
 ├── model/
-│   └── best.pt
+│ └── best.pt
 │
 ├── requirements.txt
 └── README.md
+
 ⚙️ Tech Stack
 
 Python
@@ -75,10 +81,9 @@ Pandas
 CSV Logging
 
 🌐 API Endpoints
-POST /violation
+### POST /violation
 
-Receives violation event from driver client.
-
+```json
 {
   "driver_id": "Driver-1",
   "type": "phone",
