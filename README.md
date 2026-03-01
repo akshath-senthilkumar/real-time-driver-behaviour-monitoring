@@ -25,8 +25,8 @@ The system supports concurrent drivers and performs rule-based violation detecti
 Behaviour	Threshold
 Phone Usage	> 4 seconds continuous
 Eyes Closed	> 3 seconds continuous
-Looking Away	> 5 seconds continuous
-Critical Alert	2+ simultaneous violations
+Looking Away > 5 seconds continuous
+Critical Alert 2+ simultaneous violations
 🧠 System Architecture
 Driver App (YOLO + Rule Engine)
             ↓
