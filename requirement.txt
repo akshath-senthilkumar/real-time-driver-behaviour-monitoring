@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+streamlit
+opencv-python
+ultralytics
+requests
+websockets
+pandas
+python-multipart
