@@ -128,9 +128,7 @@ python driver_app.py
 🔐 Demo Credentials
 Driver-1 / 1234
 Driver-2 / 1234
-📷 Screenshots
 
-(Add images here)
 
 screenshots/dashboard.png
 screenshots/driver_app.png
@@ -146,19 +144,7 @@ Supports WebSocket real-time broadcasting
 
 This system operates as a soft real-time monitoring system.
 
-🏗 Future Improvements
 
-Database integration (PostgreSQL / MongoDB)
-
-JWT Authentication
-
-Dockerization
-
-Cloud deployment (Render / AWS)
-
-SMS / Email alert integration
-
-Edge deployment (Raspberry Pi)
 
 🏆 Applications
 
@@ -170,11 +156,6 @@ Commercial vehicle monitoring
 
 AI-based road safety systems
 
-📜 License
-
-MIT License
-
-🔥 Add This At Top (Very Important)
 
 Add badges:
 
