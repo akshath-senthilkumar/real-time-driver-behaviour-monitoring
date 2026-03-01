@@ -1,35 +1,61 @@
 🚗 Real-Time Driver Behaviour Monitoring System
+
+
+
+
+
+
+
+
 📌 Overview
 
-A real-time multi-driver behaviour monitoring platform that detects unsafe driving behaviours using computer vision and displays live violation alerts on a centralized dashboard.
+A real-time multi-driver behaviour monitoring system that detects unsafe driving behaviours using computer vision and displays live alerts on a centralized dashboard.
 
-This system supports multiple drivers simultaneously and updates their status dynamically with rule-based violation detection.
+The system supports concurrent drivers and performs rule-based violation detection with critical alert escalation.
 
-🎯 Problem Statement
+🎯 Behaviours Detected
 
-Monitor driver behaviour in real time and detect:
+📱 Phone Usage
 
-📱 Phone usage
+😴 Drowsiness (Eyes Closed)
 
-😴 Drowsiness (eyes closed)
+👀 Looking Away
 
-👀 Looking away from road
-
-Trigger alerts when violations exceed time thresholds and display them live on a central dashboard.
-
+🚨 Violation Rules
+Behaviour	Threshold
+Phone Usage	> 4 seconds continuous
+Eyes Closed	> 3 seconds continuous
+Looking Away	> 5 seconds continuous
+Critical Alert	2+ simultaneous violations
 🧠 System Architecture
 Driver App (YOLO + Rule Engine)
             ↓
-      FastAPI Server
+      FastAPI Backend
             ↓
-  Streamlit Dashboard (Live Updates)
-
-Communication:
+     Streamlit Dashboard
+Communication
 
 REST API for violation events
 
-WebSocket broadcasting for real-time dashboard updates
+WebSocket broadcasting for real-time updates
 
+📁 Project Structure
+real-time-driver-behaviour-monitoring/
+│
+├── client/
+│   └── driver.py
+│
+├── server/
+│   └── server.py
+│
+├── dashboard/
+│   └── dashboard.py
+│
+├── model/
+│   └── best.pt
+│
+├── requirements.txt
+└── README.md
 ⚙️ Tech Stack
 
 Python
@@ -48,52 +74,6 @@ Pandas
 
 CSV Logging
 
-🚨 Violation Rules
-Behaviour	Trigger Condition
-Phone Usage	> 4 seconds continuous
-Eyes Closed	> 3 seconds continuous
-Looking Away	> 5 seconds continuous
-Critical Alert	2+ simultaneous violations
-👥 Multi-Driver Support
-
-Driver login authentication
-
-Independent violation tracking per driver
-
-Active / Inactive detection (based on heartbeat)
-
-Centralized dashboard monitoring
-
-🖥 Driver App Features
-
-Webcam real-time inference
-
-YOLO object detection
-
-Rule-based time tracking
-
-Audio alert on critical violation
-
-HUD overlay with status
-
-Sends structured JSON events to server
-
-📊 Dashboard Features
-
-Live auto-updating interface
-
-Driver status cards
-
-Active driver detection
-
-Critical alert blinking highlight
-
-Violation duration tracking
-
-CSV violation history download
-
-Bar chart analytics
-
 🌐 API Endpoints
 POST /violation
 
@@ -107,7 +87,7 @@ Receives violation event from driver client.
 }
 GET /drivers
 
-Returns current driver states.
+Returns all current driver states.
 
 WebSocket /ws
 
@@ -124,43 +104,28 @@ cd dashboard
 streamlit run dashboard.py
 4️⃣ Start Driver App
 cd client
-python driver_app.py
+python driver.py
 🔐 Demo Credentials
 Driver-1 / 1234
 Driver-2 / 1234
-
-
-screenshots/dashboard.png
-screenshots/driver_app.png
 📈 Real-Time Performance
 
-Frame-level inference (continuous)
+Frame-level inference
 
 Sub-second violation detection
 
 ~1–2 second dashboard latency (poll-based)
 
-Supports WebSocket real-time broadcasting
+WebSocket support for near-instant updates
 
 This system operates as a soft real-time monitoring system.
 
-
-
 🏆 Applications
 
-Fleet management systems
+Fleet Monitoring Systems
 
-Smart transportation
+Commercial Vehicle Safety
 
-Commercial vehicle monitoring
+Smart Transportation
 
-AI-based road safety systems
-
-
-Add badges:
-
-![Python](https://img.shields.io/badge/Python-3.10-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
-![YOLO](https://img.shields.io/badge/YOLO-ObjectDetection-red)
-![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-orange)
-
+AI-Based Road Safety
