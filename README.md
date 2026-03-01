@@ -164,4 +164,3 @@ Add badges:
 ![YOLO](https://img.shields.io/badge/YOLO-ObjectDetection-red)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-orange)
 
-Recruiters love badges.
